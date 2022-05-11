@@ -3,6 +3,7 @@ const fs = require('fs');
 
 for (var i = 0; i < 10000; i++) {
   fs.writeFile("./README.md", "Hello World " + i, () => {
+    console.log("Successfully written to file: " + i);
     exec(`git add README.md && git commit -am "${i} commit"`, (err) => {
       if (err) {
         console.log(err);
